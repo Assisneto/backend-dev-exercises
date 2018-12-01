@@ -1,0 +1,9 @@
+SELECT * From records as rec
+left JOIN countries coun ON coun.id = rec.id
+left join education_levels el ON el.id = rec.id 
+left join marital_statuses ms ON ms.id = rec.id
+left join occupations oc ON oc.id = rec.id
+left join races ra ON ra.id = rec.id
+left join relationships re ON re.id = rec.id
+left join sexes se ON se.id = rec.id
+left join workclasses wo ON wo.id = rec.id
