@@ -1,0 +1,10 @@
+{
+  "name": "Back-Dev-Exe",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Assisneto",
+  "license": "MIT",
+  "dependencies": {
+    "sqlite3": "^4.0.4"
+  }
+}
