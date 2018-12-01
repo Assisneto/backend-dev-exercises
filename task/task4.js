@@ -7,21 +7,22 @@ let db = new sqlite3.Database('../exercise01.sqlite', sqlite3.OPEN_READWRITE, (e
   console.log('Deu certo')
 })
 //Analise I: Qual raça teve a maior porcentagem de pessoas que ganharam acima de 50.000
- let sql = `select race_id as id, sum(over_50k) as sum, count(*) as 'count' from records 
- group by race_id`
+ let sql = `select race_id as id,races.name ,count(*) as 'count', sum(over_50k) as sum from (records 
+  inner join races on races.id = records.race_id ) as result
+   group by race_id  `
  
   db.all(sql,[],(err,rows)=>{
       if(err) console.log(err.message);
-      
-     const counts = rows.map((row,count) => {
-        count += row.count;
-        return count;
-      });
-      const count = counts.reduce(function(soma, num){
-        return soma + num
-     },0);
+       let sum= 0 , count = 0
+      for (i = 0 ;rows.length > i ; i++ ) {
+        sum += rows[i].sum
+        count += rows[i].count
 
-     console.log(count)
+      }
+       for (i = 0 ;rows.length > i  ;i++ ) {
+         let soma = (rows[i].sum/sum)
+         console.log(`Porcentagem de pessoas da Raça ${(rows[i].name).toUpperCase()} que ganham acima de 50k: ${(soma*100).toPrecision(2)}`)
+       }
     });
 
    
