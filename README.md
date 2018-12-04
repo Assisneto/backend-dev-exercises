@@ -1,3 +1,8 @@
+##Desafio finalizado 
+### Questão 1 a 4 task/tasks (PS: Questão 2 feita diretamente no sqlite arquivo data.csv representa sua solução)
+### Questão 5 a 5 task/task5 (PS: suba o servidor backend dentro da pasta backend(task/task5/backend/src)) com o comando 'nodemon index.js', e o frontend na pasta frontend(task/task5/frontend) com o comando 'yarn start'
+
+
 ## RTI CDS Backend Developer Exercise 01
 
 Welcome to Exercise 01. This exercise provides a small SQLite database with some data derived from the 1996 US Census and a few questions related to working with SQL and open source analysis packages.
