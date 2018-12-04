@@ -1,6 +1,6 @@
 const sqlite3 = require('sqlite3').verbose();
 
-let db = new sqlite3.Database('../exercise01.sqlite', sqlite3.OPEN_READWRITE, (err)=>{
+let db = new sqlite3.Database('../../exercise01.sqlite', sqlite3.OPEN_READWRITE, (err)=>{
   if(err){
     return console.log(err.message);
   }
@@ -14,20 +14,39 @@ let db = new sqlite3.Database('../exercise01.sqlite', sqlite3.OPEN_READWRITE, (e
  inner join races on result4.race_id = races.id) as result5
  inner join relationships on result5.relationship_id = relationships.id) as result6
  inner join sexes on result6.sex_id = sexes.id) as result7
- inner join workclasses on result7.workclass_id = workclasses.id)
-`
+ inner join workclasses on result7.workclass_id = workclasses.id)`
 
-    db.each(sql,[],(err,row)=>{
-      if(err) console.log(err.message);
-      console.log(row)
-    
-   });
+ db.allAsync = function (sql) {
+  var that = this;
+  return new Promise(function (resolve, reject) {
+    that.all(sql, function (err, rows) {
+      if (err)
+      reject(err);
+      else
+      resolve(rows);
+    });
+  });
+};
 
 
+
+async function task1 (){
+  rows = await db.allAsync(sql)
+  if (!rows){
+    console.log('erro')
+    return
+  }else{
+rows.forEach((row,id = 1) => {
+ console.log(`ID: ${id} ${JSON.stringify(row)}\n`);
+      });
+    }
+  }  
+
+task1()
 
 db.close((err) => {
-  if (err) {
-    return console.error(err.message);
-  }
-  console.log('Close the database connection.');
+if (err) {
+  return console.error(err.message);
+}
+console.log('Close the database connection.');
 });
