@@ -1,7 +1,8 @@
-##Desafio finalizado 
-### Questão 1 a 4 task/tasks (PS: Questão 2 feita diretamente no sqlite arquivo data.csv representa sua solução)
-### Questão 5 a 5 task/task5 (PS: suba o servidor backend dentro da pasta backend(task/task5/backend/src)) com o comando 'nodemon index.js', e o frontend na pasta frontend(task/task5/frontend) com o comando 'yarn start'
-
+### Desafio finalizado 
+#### Questão 1 a 4 task/tasks (PS: Questão 2 feita diretamente no sqlite arquivo data.csv representa sua solução)
+#### Questão 5 a 5 task/task5 (PS: suba o servidor backend dentro da pasta backend(task/task5/backend/src)) com o comando 'nodemon index.js', e o frontend na pasta frontend(task/task5/frontend) com o comando 'yarn start'.
+#### As Questão estaram listada em um menu lateral na pagina inicial
+----
 
 ## RTI CDS Backend Developer Exercise 01
 
